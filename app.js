@@ -31,11 +31,31 @@ function showWeatherReport(weather){
     let weathertype = document.getElementById('weather');
     city.innerText = `${weather.weather[0].main}`;
 
+    let date = document.getElementById('date');
+    let todayData = new Date ();
+    date.innerText = dateManage(todayData);
 
-
+    if(weatherType.textContent == 'clear') {
+        document.body.style.backgroundImage = "url('download (1).jpg')"
+    } else if(weatherType.textContent == 'Cloud') {
+        document.body.style.backgroundImage = "url('download (2).jpg')"
+    }else if(weatherType.textContent == 'Rain') {
+        document.body.style.backgroundImage = "url('download (3).jpg')"
+    }else if(weatherType.textContent == 'Snow') {
+        document.body.style.backgroundImage = "url('download (4).jpg')"
+    }
 }
+function dateManage(dateArg) {
+    let days= ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ,"Saturday"];
+    let months= ["January", "Ferbruary", "March", "April", "May", "June", "July", "Augest", "September", "Octuber", "November", "December"];
 
+    let year = dateArg.getFullYear();
+    let month = months[dateArg.getMonth()];
+    let data = dateArg.getDate();
+    let day = days[dateArg.getDate()];
 
+    return `${date} ${month} (${day}) ${year}`;
+}
 
 
 
